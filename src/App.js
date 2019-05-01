@@ -1,6 +1,24 @@
 import React from 'react';
 import './App.css';
 
+var items = [
+  {
+    id: 1,
+    description: "fold laundry",
+    completed: false,
+  },
+  {
+    id: 2,
+    description: "walk boo",
+    completed: false,
+  },
+  {
+    id: 3,
+    description: "office hours",
+    completed: false,
+  }
+]
+
 function App() {
   return (
     <div className="App">
@@ -8,16 +26,18 @@ function App() {
       <input type="text" />
       <button>Add</button>
       <ul>
-      <li>
-          <label>
-            <input type="checkbox" /> Fold laundry
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox" /> Walk Boo
-          </label>
-        </li>
+
+      {items.map((item, index) => {
+        return(
+          <li>
+            <label>
+              <input type="checkbox" /> {item.description}
+            </label>
+          </li>
+          )
+        })
+      }
+      
       </ul>
     </div>
   );
